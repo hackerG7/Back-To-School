@@ -38,6 +38,7 @@ public class Shooting : MonoBehaviour
             Vector3 endpoint = PlayerController.Instance.PlayerMovement.pointtolook;
             Vector3 startpoint = PlayerController.Instance.PlayerMovement.playertransform.position;
             Vector3 shootdirection = endpoint - startpoint;
+            shootdirection = shootdirection.normalized;
 
             rb.AddForce(shootdirection.x * shootingforce * Time.deltaTime, shootdirection.y * shootingforce * Time.deltaTime, shootdirection.z * shootingforce * Time.deltaTime, ForceMode.Impulse);
 
