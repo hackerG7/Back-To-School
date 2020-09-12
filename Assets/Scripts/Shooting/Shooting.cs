@@ -33,7 +33,12 @@ public class Shooting : MonoBehaviour
             Rigidbody rb = bulletObject.GetComponent<Rigidbody>();
 
             rb.velocity = new Vector3(0, 0, 0);//resetting bullet velocity
-            rb.AddRelativeForce(0, 0, shootingforce * Time.deltaTime,ForceMode.Impulse);//adding bullet veloci
+            rb.AddForce(0, 0, shootingforce * Time.deltaTime, ForceMode.Impulse);
+
+            Vector3 endpoint = PlayerController.Instance.PlayerMovement.pointtolook;
+            Vector3 startpoint = PlayerController.Instance.PlayerMovement.
+
+            
 
 
 

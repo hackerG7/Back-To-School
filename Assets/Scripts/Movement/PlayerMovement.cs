@@ -25,7 +25,7 @@ public class PlayerMovement : MonoBehaviour
     //player rotation
     public Camera cam;
     float raylength;
-    Vector3 pointtolook;
+    public Vector3 pointtolook;
 
 
     void Start()
