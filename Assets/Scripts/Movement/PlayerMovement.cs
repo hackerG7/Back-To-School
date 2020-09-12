@@ -7,6 +7,7 @@ public class PlayerMovement : MonoBehaviour
     //Control
     public float movementspeed = 20f;
     Vector3 movement;
+    public Transform playertransform;
 
     //Add force
     public Rigidbody rb;

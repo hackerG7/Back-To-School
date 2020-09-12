@@ -424,6 +424,7 @@ GameObject:
   - component: {fileID: 818281255}
   - component: {fileID: 818281254}
   - component: {fileID: 818281253}
+  - component: {fileID: 818281259}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -444,11 +445,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementspeed: 100
+  playertransform: {fileID: 818281258}
   rb: {fileID: 818281254}
   maxspeed: 5
   campos: {fileID: 788145669}
   offset: {x: 0, y: 11.25, z: -3.03}
   cam: {fileID: 788145668}
+  pointtolook: {x: 0, y: 0, z: 0}
 --- !u!54 &818281254
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -542,6 +545,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &818281259
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 818281252}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 584079afc4e911245807ea2d3a4cc299, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayerMovement: {fileID: 818281253}
+  Shooting: {fileID: 113803410}
 --- !u!1 &1339072973
 GameObject:
   m_ObjectHideFlags: 0

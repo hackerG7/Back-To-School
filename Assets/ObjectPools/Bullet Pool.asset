@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: BulletPool
   _template: {fileID: 5636250455556771140, guid: fca68be0b8de3564197b26baaceb7854, type: 3}
-  _defaultSize: 5
+  _defaultSize: 0
   _maxSize: 5
   _incrementalInstanceNames: 0
   _autoInitialize: 1
