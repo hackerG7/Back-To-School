@@ -6,12 +6,15 @@ public class PlayerController : MonoBehaviour
 {
     public PlayerMovement PlayerMovement;
     public Shooting Shooting;
-    public static PlayerController Instance;
 
+
+    //Singleton
+    public static PlayerController Instance;
     void Awake()
     {
         Instance = this;
     }
+    //Singleton
 
 
 }
