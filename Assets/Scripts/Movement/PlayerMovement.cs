@@ -41,7 +41,7 @@ public class PlayerMovement : MonoBehaviour
         //Control
         movement.x = Input.GetAxisRaw("Horizontal") * movementspeed * Time.deltaTime;
         movement.z = Input.GetAxisRaw("Vertical") * movementspeed * Time.deltaTime;
-        Debug.Log(raylength);
+        //Debug.Log(raylength);
 
 
         
