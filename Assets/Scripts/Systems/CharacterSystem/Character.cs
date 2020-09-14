@@ -1,18 +1,22 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class Character : MonoBehaviour
+[System.Serializable]
+public class Character
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public string CharacterID = "";
+    public string CharacterName = "";
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    #region BaseValue
+    public float BaseHealth = 100f;
+    public float BaseSpeed = 100f;
+    public float BaseDamage = 100f;
+    #endregion
+
+
+    #region Skills
+    public string SkillID = "";
+    public string UltimateSkillID = "";
+    #endregion
+
 }
