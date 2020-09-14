@@ -424,6 +424,7 @@ GameObject:
   - component: {fileID: 818281255}
   - component: {fileID: 818281254}
   - component: {fileID: 818281253}
+  - component: {fileID: 818281260}
   - component: {fileID: 818281259}
   m_Layer: 0
   m_Name: Player
@@ -558,7 +559,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerMovement: {fileID: 818281253}
-  Shooting: {fileID: 113803410}
+  PlayerShooting: {fileID: 0}
+--- !u!114 &818281260
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 818281252}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60e0740459865814691958ef4ca30d8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Character:
+    CharacterID: 
+    CharacterName: 
+    BaseHealth: 100
+    BaseSpeed: 100
+    BaseDamage: 100
+    SkillID: 
+    UltimateSkillID: 
+  PlayerController: {fileID: 0}
 --- !u!1001 &1685944313
 PrefabInstance:
   m_ObjectHideFlags: 0

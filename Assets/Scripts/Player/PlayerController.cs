@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public PlayerMovement PlayerMovement;
-    public Shooting Shooting;
+    public PlayerShooting PlayerShooting;
 
 
     //Singleton
