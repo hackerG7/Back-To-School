@@ -559,6 +559,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerMovement: {fileID: 818281253}
   Shooting: {fileID: 113803410}
+--- !u!1 &1005044787 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7579396284760416785, guid: 274b835299df4d442a6715e5f111df4b, type: 3}
+  m_PrefabInstance: {fileID: 7579396283851908642}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1005044788
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1005044787}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d8ad3eb2f0d87e4d895d25cf746bfb7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1928240595
 GameObject:
   m_ObjectHideFlags: 0
