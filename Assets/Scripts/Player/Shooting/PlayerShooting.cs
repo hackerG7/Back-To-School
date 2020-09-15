@@ -16,6 +16,14 @@ public class PlayerShooting : MonoBehaviour
         
     }
 
+    public Vector3 GetPlayerShootingDirection()
+    {//Get the shooting direction of the player
+        Vector3 endpoint = EntitySystem.Instance.MainPlayer.PlayerMovement.pointtolook;
+        Vector3 startpoint = EntitySystem.Instance.MainPlayer.PlayerMovement.playertransform.position;
+        Vector3 shootDirection = endpoint - startpoint;
+        shootDirection = shootDirection.normalized;
+        return shootDirection;
+    }
     // Update is called once per frame
     void Update()
     {
@@ -23,24 +31,27 @@ public class PlayerShooting : MonoBehaviour
 
             GameObject bulletObject = MasterObjectPooler.Instance.GetObject("BulletPool");//getting object from the pool
             Bullet bullet = bulletObject.GetComponent<Bullet>();//Get the Bullet script;
-            bullet.Initiate();//Initiate the bullet script;
+            bullet.Shoot(
+                EntitySystem.Instance.MainPlayer, 
+                bulletspawn.position,
+                GetPlayerShootingDirection(), 
+                shootingforce
+                );//Initiate the bullet script;
+
+            /*
             bulletObject.transform.position = bulletspawn.position;//setting bullet position
             bulletObject.transform.rotation = bulletspawn.rotation;//setting bullet rotation
-
+            */
             //same function as Instantiate(bulletprefab, bulletspawn.position, bulletspawn.rotation);
 
 
-            Rigidbody rb = bulletObject.GetComponent<Rigidbody>();
+            //Rigidbody rb = bulletObject.GetComponent<Rigidbody>();
 
-            rb.velocity = new Vector3(0, 0, 0);//resetting bullet velocity
+            //rb.velocity = new Vector3(0, 0, 0);//resetting bullet velocity
 
 
-            Vector3 endpoint = EntitySystem.Instance.MainPlayer.PlayerMovement.pointtolook;
-            Vector3 startpoint = EntitySystem.Instance.MainPlayer.PlayerMovement.playertransform.position;
-            Vector3 shootdirection = endpoint - startpoint;
-            shootdirection = shootdirection.normalized;
 
-            rb.AddForce(shootdirection.x * shootingforce * Time.deltaTime, shootdirection.y * shootingforce * Time.deltaTime, shootdirection.z * shootingforce * Time.deltaTime, ForceMode.Impulse);
+            //rb.AddForce(shootdirection.x * shootingforce * Time.deltaTime, shootdirection.y * shootingforce * Time.deltaTime, shootdirection.z * shootingforce * Time.deltaTime, ForceMode.Impulse);
 
 
 

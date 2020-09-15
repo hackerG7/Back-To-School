@@ -11,8 +11,9 @@ public class Waterball : Skill
         // Do additional work here otherwise you can leave it empty
     }
 
-    public override void Run(Player player)
-    {
-        Debug.Log($"running skill waterball!");
+    public override void Run(Entity entity)
+    {//skill content
+        entity.Rigidbody.AddForce(0, 10, 0,ForceMode.Impulse);
+        Debug.Log($"running skill waterball! flying to sky~");
     }
 }

@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1805553327595299985}
   - component: {fileID: 405623976529054223}
   m_Layer: 0
-  m_Name: Bullet
+  m_Name: DefaultBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -125,4 +125,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc76eebf94b5f1546b4f96b097ac5e1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Master: {fileID: 0}
+  Collider: {fileID: 6809667538165216205}
+  RigidBody: {fileID: 1805553327595299985}
+  Piercing: 0
   AutoRemoveAfterSeconds: 1
+  Damage: 10

@@ -11,7 +11,7 @@ public class Grassball : Skill
         // Do additional work here otherwise you can leave it empty
     }
 
-    public override void Run(Player player)
+    public override void Run(Entity entity)
     {
         Debug.Log($"running skill grassball!");
     }

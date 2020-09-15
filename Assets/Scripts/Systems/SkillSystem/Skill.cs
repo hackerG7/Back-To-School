@@ -18,7 +18,7 @@ public class Skill
     public float Cooldown = 5;//set the basic cooldown to 5 seconds
 
 
-    public virtual void Run(Player player)
+    public virtual void Run(Entity entity)
     {
         Debug.Log($"running skill {skillName}");
     }

@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour
         {//Run normal skill
             EntitySystem.Instance.MainPlayer.RunSkill();
         }
-        if (Input.GetButton(UltimateSkillButton))
+        if (Input.GetButtonDown(UltimateSkillButton))
         {//Run normal skill
             EntitySystem.Instance.MainPlayer.RunUltimateSkill();
         }

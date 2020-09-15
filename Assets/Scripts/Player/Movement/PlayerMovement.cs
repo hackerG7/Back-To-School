@@ -56,19 +56,19 @@ public class PlayerMovement : MonoBehaviour
 
         if (rb.velocity.x > maxspeed || rb.velocity.z > maxspeed || rb.velocity.z < -maxspeed || rb.velocity.x < -maxspeed)
         {
-            rb.velocity = new Vector3(speed.x, 0, speed.z);
+            rb.velocity = new Vector3(speed.x, rb.velocity.y, speed.z);
         }
 
         //Zeroing speed
         if (movement.x == 0)
         {
-            rb.velocity = new Vector3(0, 0, speed.z);
+            rb.velocity = new Vector3(0, rb.velocity.y, speed.z);
             speed.x = 0;
         }
 
         if (movement.z == 0)
         {
-            rb.velocity = new Vector3(speed.x, 0, 0);
+            rb.velocity = new Vector3(speed.x, rb.velocity.y, 0);
         }
         
 
