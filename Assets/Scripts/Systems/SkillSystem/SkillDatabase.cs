@@ -10,9 +10,9 @@ public class SkillDatabase : MonoBehaviour
 
     private void LoadAllSkills()
     {//This is the place holding all skills data
-        SkillList.Add(new Skill("test1", "測試火焰術", 5));
-        SkillList.Add(new Skill("test2", "測試水球術", 5));
-        SkillList.Add(new Skill("test3", "測試綠葉術", 5));
+        SkillList.Add(new Fireball("Fireball", "測試火焰術", 1));
+        SkillList.Add(new Waterball("Waterball", "測試水球術", 1));
+        SkillList.Add(new Grassball("Grassball", "測試綠葉術", 1));
     }
     private void Awake()
     {

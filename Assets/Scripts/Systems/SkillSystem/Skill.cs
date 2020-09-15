@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
 public class Skill
 {
     public Skill(string skillID, string skillName, float Cooldown)
@@ -15,6 +16,7 @@ public class Skill
     public string skillName = "";
 
     public float Cooldown = 5;//set the basic cooldown to 5 seconds
+
 
     public virtual void Run(Player player)
     {

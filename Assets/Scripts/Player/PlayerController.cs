@@ -4,17 +4,18 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public PlayerMovement PlayerMovement;
-    public PlayerShooting PlayerShooting;
-
-
-    //Singleton
-    public static PlayerController Instance;
-    void Awake()
+    public string SkillButton = "Fire2";
+    public string UltimateSkillButton = "Jump";
+    private void Update()
     {
-        Instance = this;
+        if (Input.GetButtonDown(SkillButton))
+        {//Run normal skill
+            EntitySystem.Instance.MainPlayer.RunSkill();
+        }
+        if (Input.GetButton(UltimateSkillButton))
+        {//Run normal skill
+            EntitySystem.Instance.MainPlayer.RunUltimateSkill();
+        }
     }
-    //Singleton
-
 
 }

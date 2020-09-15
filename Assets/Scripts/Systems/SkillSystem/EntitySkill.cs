@@ -2,13 +2,23 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerSkill : MonoBehaviour
+[System.Serializable]
+public class EntitySkill
 {
     public Skill Skill;
     public bool SkillReady = true;
 
     public float CurrentTime = 0;
-
+#region Constructor
+    public EntitySkill(Skill skill)
+    {//Constructor
+        Skill = skill;
+    }
+    public static EntitySkill FromSkill(Skill skill)
+    {//static constructor
+        return new EntitySkill(skill);
+    }
+#endregion
     public void Run(Player player)
     {//Run the skill~
         if (SkillReady)//if the cooldown loaded completely
@@ -19,8 +29,9 @@ public class PlayerSkill : MonoBehaviour
         }
         
     }
-    // Update is called once per frame
-    void Update()
+
+    //The Entity Monobehaviour would run the update.
+    public void Update()
     {
         if(CurrentTime > 0)
         {//Counting the cooldown. 

@@ -33,10 +33,10 @@ public class PlayerShooting : MonoBehaviour
             Rigidbody rb = bulletObject.GetComponent<Rigidbody>();
 
             rb.velocity = new Vector3(0, 0, 0);//resetting bullet velocity
-            
 
-            Vector3 endpoint = PlayerController.Instance.PlayerMovement.pointtolook;
-            Vector3 startpoint = PlayerController.Instance.PlayerMovement.playertransform.position;
+
+            Vector3 endpoint = EntitySystem.Instance.MainPlayer.PlayerMovement.pointtolook;
+            Vector3 startpoint = EntitySystem.Instance.MainPlayer.PlayerMovement.playertransform.position;
             Vector3 shootdirection = endpoint - startpoint;
             shootdirection = shootdirection.normalized;
 
