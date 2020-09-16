@@ -23,6 +23,10 @@ public class Entity : MonoBehaviour
         {//updating each EntitySkill
             entitySkill.Update();
         }
+        if(Health <= 0)
+        {
+            gameObject.SetActive(false);//die when no health
+        }
 
     }
 }

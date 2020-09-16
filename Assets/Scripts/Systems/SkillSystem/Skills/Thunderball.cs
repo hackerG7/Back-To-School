@@ -2,30 +2,28 @@
 using System.Collections.Generic;
 using UnityEngine;
 [System.Serializable]
-public class Fireball : Skill
+public class Thunderball : Skill
 {
     public float ShootForce { get; set; } = 500;
-    public float Power = 50;//the power of explosion
-    public Fireball(string skillID, string skillName, float cooldown)
+    public Thunderball(string skillID, string skillName, float cooldown)
     : base(skillID, skillName, cooldown)
     {
         // DerivedClass parameter types have to match base class types
         // Do additional work here otherwise you can leave it empty
     }
-    public Fireball SetPower(float power)
-    {
-        Power = power;
-        return this;
-    }
 
-    public override void Run(Entity entity)
+    public override void Run(Entity entity)//entity is the skill caster
     {
         //Bullet builder
         BulletSystem.Instance.CreateBullet("Fireball")//Create the bullet
-        .OnDeath((b) => PhysicsExtension.Explosion(b.transform.position, 10f, 60f*Power))//when death, explosion
+        .OnDeath((b) => PhysicsExtension.Explosion(b.transform.position, 10f, 3000f))//when death, explosion
         .Shoot(entity, ShootForce);//Shoot the bullet
 
 
         Debug.Log($"running skill fireball!");
+    }
+    public void Explosion(Bullet bullet)
+    {
+
     }
 }

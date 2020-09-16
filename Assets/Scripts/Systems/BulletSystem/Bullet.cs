@@ -1,4 +1,5 @@
 ﻿using QFSW.MOP2;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,6 +9,8 @@ public class Bullet : MonoBehaviour
     public Entity Master;
     public Collider Collider;
     public Rigidbody RigidBody;
+    public string ObjectPoolID;
+    public List<Entity> HitList = new List<Entity>();
 
     public bool Piercing = false;
 
@@ -15,10 +18,19 @@ public class Bullet : MonoBehaviour
 
     public float Damage = 10;
 
-    public void Shoot(Entity master, float force)
-    {//Simple shooting with less arguments
-        Shoot(master, master.transform.position, master.transform.rotation.eulerAngles, force);
+    public Action<Bullet> DestroyCallback;//This is a function that would be called when the bullet destroy.
+    public Bullet OnDeath(Action<Bullet> callback)
+    {//Setting the destroy callback
+        DestroyCallback = callback;
+        return this;
     }
+
+    #region Shoot
+    public Bullet Shoot(Entity master, float force)
+    {//Simple shooting with less arguments
+        return Shoot(master, master.transform.position, master.transform.rotation, force);
+    }
+
     /// <summary>
     /// 
     /// </summary>
@@ -26,26 +38,74 @@ public class Bullet : MonoBehaviour
     /// <param name="position">the shoot position</param>
     /// <param name="shootDirection">the shooting direction</param>
     /// <param name="force">the shooting force</param>
-    public void Shoot(Entity master, Vector3 position, Vector3 shootDirection, float force)
+    public Bullet Shoot(Entity master, Vector3 position, Vector3 shootDirection, float force)
     {
         //Shooter 
         Master = master;
-
+        HitList = new List<Entity>();
         //Transform
         gameObject.transform.position = position;
-        gameObject.transform.rotation = Quaternion.Euler(0, Mathf.Rad2Deg*Mathf.Atan2(shootDirection.x, shootDirection.z), 0);//Circo please fix this line
+        gameObject.transform.rotation = Quaternion.Euler(0, Mathf.Rad2Deg * Mathf.Atan2(shootDirection.x, shootDirection.z), 0);
 
         //Force adding
         RigidBody.velocity = Vector3.zero;//(0,0,0)
-        Debug.Log("shootDirection.x: " + shootDirection.x);
-        RigidBody.AddForce(shootDirection.x * force * Time.deltaTime, shootDirection.y * force * Time.deltaTime, shootDirection.z * force * Time.deltaTime, ForceMode.Impulse);
+        RigidBody.AddForce(shootDirection.x * force, shootDirection.y * force, shootDirection.z * force, ForceMode.Impulse);
 
         //Auto Self Destroy
         Invoke("Remove", AutoRemoveAfterSeconds);
+        return this;
     }
+    public Bullet Shoot(Entity master, Vector3 position, Quaternion shootDirection, float force)
+    {
+        //Shooter 
+        Master = master;
+        HitList = new List<Entity>();
+        //Transform
+        gameObject.transform.position = position;
+        gameObject.transform.rotation = shootDirection;
+
+        //Force adding
+        RigidBody.velocity = Vector3.zero;//(0,0,0)
+        RigidBody.AddForce(shootDirection * Vector3.forward * force);
+        
+        //Auto Self Destroy
+        Invoke("Remove", AutoRemoveAfterSeconds);
+        return this;
+    }
+    #endregion
     public void Remove()
     {
-        MasterObjectPooler.Instance.Release(gameObject, "BulletPool");
+        if(DestroyCallback!=null)
+            DestroyCallback(this);
+        MasterObjectPooler.Instance.Release(gameObject, ObjectPoolID);
+    }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        Entity target = collision.gameObject.GetComponent<Entity>();
+        if (target == null) return;
+        if (target == Master) return;
+
+        if (!Piercing)
+        {
+            target.Health -= Damage;
+            Remove();
+        }
+        else
+        {
+            if (!HitList.Contains(target))
+            {
+                target.Health -= Damage;
+                HitList.Add(target);
+            }
+        }
+        foreach(ContactPoint contact in collision.contacts)
+        {
+            Debug.DrawRay(contact.point, contact.normal, Color.white);
+        }
+        /*
+        if (collision.relativeVelocity.magnitude > 2)
+            audioSource.Play();*/
     }
 
 }

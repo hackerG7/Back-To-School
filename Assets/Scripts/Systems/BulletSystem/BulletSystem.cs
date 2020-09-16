@@ -13,12 +13,14 @@ public class BulletSystem : MonoBehaviour
     }
     public Bullet CreateBullet(string objectPoolID)
     {
-        GameObject bulletObject = MasterObjectPooler.Instance.GetObject("BulletPool");//getting object from the pool
+        GameObject bulletObject = MasterObjectPooler.Instance.GetObject(objectPoolID);//getting object from the pool
 
         if (bulletObject == null)
             Debug.LogError($"Cannot find bullet object from pool: {objectPoolID}");
         
         Bullet bullet = bulletObject.GetComponent<Bullet>();//Get the Bullet script;
+        bullet.ObjectPoolID = objectPoolID;//Setting the bullet object pool ID to release it later
+
 
         if (bullet == null)
             Debug.LogError($"Cannot find bullet script in prefab, bullet object pool ID: {objectPoolID}");

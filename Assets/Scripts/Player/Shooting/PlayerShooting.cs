@@ -9,7 +9,7 @@ public class PlayerShooting : MonoBehaviour
     
     public GameObject bulletprefab;
     public Transform bulletspawn;
-    public float shootingforce = 50f;
+    public float shootingforce = 50000f;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,9 +29,7 @@ public class PlayerShooting : MonoBehaviour
     {
         if (Input.GetButtonDown("Fire1")) { 
 
-            GameObject bulletObject = MasterObjectPooler.Instance.GetObject("BulletPool");//getting object from the pool
-            Bullet bullet = bulletObject.GetComponent<Bullet>();//Get the Bullet script;
-            bullet.Shoot(
+            BulletSystem.Instance.CreateBullet("TestBullet").Shoot(
                 EntitySystem.Instance.MainPlayer, 
                 bulletspawn.position,
                 GetPlayerShootingDirection(), 
