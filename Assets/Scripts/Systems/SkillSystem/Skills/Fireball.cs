@@ -25,6 +25,7 @@ public class Fireball : Skill
         .OnDeath((b) => PhysicsExtension.Explosion(b.transform.position, 10f, 60f*Power))//when death, explosion
         .Shoot(entity, ShootForce);//Shoot the bullet
 
+
         Debug.Log($"running skill fireball!");
     }
 }
