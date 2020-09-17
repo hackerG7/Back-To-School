@@ -9,7 +9,7 @@ public class EntitySystem : MonoBehaviour
     public Player MainPlayer;
     public void LoadAllEntities()
     {
-        Entities = new List<Entity>(transform.GetComponentsInChildren<Entity>());
+        Entities = new List<Entity>(GetComponentsInChildren<Entity>());
         
     }
     private void Awake()
