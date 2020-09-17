@@ -1,18 +1,20 @@
-﻿using QFSW.MOP2;
+﻿using JetBrains.Annotations;
+using QFSW.MOP2;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    public Entity Master;
-    public Collider Collider;
+    private Entity Master;
+    
     public Rigidbody RigidBody;
     public string ObjectPoolID;
     public List<Entity> HitList = new List<Entity>();
 
-    public bool Piercing = false;
+    public bool Piercing = false;    //passing through the enemy or not (eg. laser)
 
     public float AutoRemoveAfterSeconds = 1;
 
@@ -106,6 +108,18 @@ public class Bullet : MonoBehaviour
         /*
         if (collision.relativeVelocity.magnitude > 2)
             audioSource.Play();*/
+
+        
+    }
+    public Entity GetMaster()
+    {
+        return Master;
+    }
+
+    public Bullet SetMaster(Entity master)
+    {
+        this.Master = master;
+        return this;
     }
 
 }
