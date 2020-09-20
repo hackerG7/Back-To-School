@@ -19,11 +19,11 @@ public class EntitySkill
         return new EntitySkill(skill);
     }
 #endregion
-    public void Run(Player player)
+    public void Run(Entity entity)
     {//Run the skill~
         if (SkillReady)//if the cooldown loaded completely
         {
-            Skill.Run(player);//Run the skill
+            Skill.Run(entity);//Run the skill
             SkillReady = false;//Set the skill ready to false to prevent spamming skills.
             CurrentTime = Skill.Cooldown;//Set the current time to cooldown, then start counting in void Update
         }

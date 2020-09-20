@@ -12,12 +12,16 @@ public class Player : Entity
     public PlayerMovement PlayerMovement;
     public PlayerShooting PlayerShooting;
 
+    //Weapon
+    public Weapon Weapon = null;
+
     //Skills
     public string SkillID = null;
     public string UltimateSkillID = null;
     private void Start()
     {
         SyncStatWithCharacter();//sync the stat value of the player e.g. health, speed, damage
+        //Weapon = FindWeaponFromDatabase();
         AddPlayerSkills();//turning the player skillID to the skill and push into the skill list.
     }
 
@@ -53,7 +57,19 @@ public class Player : Entity
             Debug.LogError($"Cannot find character by ID: {CharacterID}");//show the error
 
         return character;
-    }
+    }/*
+    private Weapon FindWeaponFromDatabase()
+    {
+        Weapon weapon = WeaponDatabase.Instance.FindWeaponByID(WeaponID);//Find the character from the database
+
+        if (WeaponID == "")
+            Debug.LogError($"The main player has no weapon ID. Please check Hierarchy > EntitySystem > MainPlayer");//show the error
+
+        if (weapon == null)
+            Debug.LogError($"Cannot find weapon by ID: {WeaponID}");//show the error
+
+        return weapon;
+    }*/
     private void SyncStatWithCharacter()
     {//Sync the statistic with the given character ID
 

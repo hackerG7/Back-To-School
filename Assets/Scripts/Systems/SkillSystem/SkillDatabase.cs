@@ -14,6 +14,10 @@ public class SkillDatabase : MonoBehaviour
         SkillList.Add(new Waterball("Waterball", "測試水球術", 5));
         SkillList.Add(new Grassball("Grassball", "測試綠葉術", 1));
         SkillList.Add(new Fireball("FireballSuper", "烈焰火球術", 5).SetPower(1000));
+        SkillList.Add(new BroomAreaAttackSkill("BroomAreaAttack", "掃把旋轉術", 5));
+
+        //Weapon attack 
+        SkillList.Add(new MeleeAttack("BroomAttack", "掃把攻擊", 0.05f));
     }
     private void Awake()
     {
