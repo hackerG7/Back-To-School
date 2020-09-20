@@ -1,5 +1,49 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3145865797597725920
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6577887377723642048}
+  - component: {fileID: 735726084797187809}
+  m_Layer: 0
+  m_Name: StateDatabase
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6577887377723642048
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3145865797597725920}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 6522930503228441935}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &735726084797187809
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3145865797597725920}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f1c7096b867f934683a86a4faf02e8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StateList: []
 --- !u!1 &6522930503228441934
 GameObject:
   m_ObjectHideFlags: 0
@@ -29,6 +73,7 @@ Transform:
   m_Children:
   - {fileID: 6522930504241435284}
   - {fileID: 6522930503927100768}
+  - {fileID: 6577887377723642048}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -75,6 +120,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5223fc5f34b53654c8442bf58bb89b64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SkillList: []
 --- !u!1 &6522930504241435283
 GameObject:
   m_ObjectHideFlags: 0
@@ -119,10 +165,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CharacterList:
-  - CharacterID: 
-    CharacterName: 
-    BaseHealth: 0
-    BaseSpeed: 0
-    BaseDamage: 0
-    SkillID: 
-    UltimateSkillID: 
+  - CharacterID: Sushil
+    CharacterName: Sushil P.
+    BaseHealth: 500
+    BaseSpeed: 100
+    BaseDamage: 100
+    SkillID: Waterball
+    UltimateSkillID: Fireball

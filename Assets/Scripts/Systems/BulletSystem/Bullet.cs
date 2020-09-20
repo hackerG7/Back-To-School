@@ -26,6 +26,16 @@ public class Bullet : MonoBehaviour
         DestroyCallback = callback;
         return this;
     }
+    public Bullet SetDamage(float damage)
+    {//Setting the destroy callback
+        Damage = damage;
+        return this;
+    }
+    public Bullet DestroyAfterSeconds(float seconds)
+    {//Set the auto destroy seconds
+        this.AutoRemoveAfterSeconds = seconds;
+        return this;
+    }
 
     #region Shoot
     public Bullet Shoot(Entity master, float force)
@@ -81,10 +91,9 @@ public class Bullet : MonoBehaviour
             DestroyCallback(this);
         MasterObjectPooler.Instance.Release(gameObject, ObjectPoolID);
     }
-
-    void OnCollisionEnter(Collision collision)
+    private void OnCollideWith(Collider collider)
     {
-        Entity target = collision.gameObject.GetComponent<Entity>();
+        Entity target = collider.gameObject.GetComponent<Entity>();
         if (target == null) return;
         if (target == Master) return;
 
@@ -101,15 +110,14 @@ public class Bullet : MonoBehaviour
                 HitList.Add(target);
             }
         }
-        foreach(ContactPoint contact in collision.contacts)
-        {
-            Debug.DrawRay(contact.point, contact.normal, Color.white);
-        }
-        /*
-        if (collision.relativeVelocity.magnitude > 2)
-            audioSource.Play();*/
-
-        
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        OnCollideWith(other);
+    }
+    void OnCollisionEnter(Collision collision)
+    {
+        OnCollideWith(collision.collider);
     }
     public Entity GetMaster()
     {

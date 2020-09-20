@@ -28,7 +28,7 @@ public class PlayerShooting : MonoBehaviour
     void Update()
     {
         if (Input.GetButtonDown("Fire1")) { 
-
+            /*
             BulletSystem.Instance.CreateBullet("TestBullet").Shoot(
                 EntitySystem.Instance.MainPlayer, 
                 bulletspawn.position,
@@ -36,7 +36,7 @@ public class PlayerShooting : MonoBehaviour
                 shootingforce
                 );//Initiate the bullet script;
 
-            /*
+            
             bulletObject.transform.position = bulletspawn.position;//setting bullet position
             bulletObject.transform.rotation = bulletspawn.rotation;//setting bullet rotation
             */
