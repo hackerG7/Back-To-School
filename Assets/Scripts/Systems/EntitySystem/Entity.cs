@@ -39,9 +39,15 @@ public class Entity : MonoBehaviour
     }
     public void UpdateEntityState()
     {
-        foreach (EntityState entityState in StateList)
+        for (int i = 0; i < StateList.Count; i++)
         {//updating each EntitySkill
+            EntityState entityState = StateList[i];
             entityState.Update();
+            if (entityState.GetFinished())
+            {
+                StateList.Remove(entityState);
+                i--;
+            }
         }
     }
 

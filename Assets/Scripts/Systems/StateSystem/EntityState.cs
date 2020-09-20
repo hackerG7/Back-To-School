@@ -27,15 +27,12 @@ public class EntityState
 
         if (CurrentTimer > 0)
         {//counting the time
-            CurrentTimer-=Time.deltaTime;
+            CurrentTimer -= Time.deltaTime;
         }
-        else
-        {//Destroy this
-            Remove();
-        }
+        
     }
-    public void Remove()
-    {
-        Target.StateList.Remove(this);
+    public bool GetFinished()
+    {//Get if the state is finished in duration.
+        return (CurrentTimer <= 0);
     }
 }
