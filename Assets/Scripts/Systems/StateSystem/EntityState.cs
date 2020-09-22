@@ -18,10 +18,7 @@ public class EntityState
         State = state;
         Duration = duration;
         CurrentTimer = Duration;
-    }
-    public void Start()
-    {
-        State.Start(Master, Target);
+        
     }
     public void Update()
     {//the entity would call this function every frame
@@ -33,10 +30,6 @@ public class EntityState
             CurrentTimer -= Time.deltaTime;
         }
         
-    }
-    public void End()
-    {
-        State.End(Master, Target);
     }
     public bool GetFinished()
     {//Get if the state is finished in duration.

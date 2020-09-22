@@ -10,8 +10,7 @@ public class AreaAttackState : State
     public float AttackIntverval = 0.1f;//the cooldown between every attack
     public float Radius = 10f;
     public float Damage = 1;
-    public GameObject EffectGameObject;
-    public string poolName = "BroomSpinningEffect";
+
     public AreaAttackState(string stateID, string stateName) : base(stateID, stateName)
     {
     }
@@ -22,11 +21,6 @@ public class AreaAttackState : State
         Radius = radius;
         Damage = damage;
         return this;
-    }
-    public override void Start(Entity master, Entity target)
-    {
-        EffectGameObject = target.ObjectPooler.GetObject(poolName);//start the particle effect
-        EffectGameObject.transform.position = target.transform.position;//Reset the position to the center of the entity
     }
     public override void Update(Entity master, Entity target)
     {
@@ -46,11 +40,6 @@ public class AreaAttackState : State
             e.Health -= Damage;
 
         }
-    }
-
-    public override void End(Entity master, Entity target)
-    {
-        target.ObjectPooler.Release(EffectGameObject, poolName);//release the particle effect
     }
 
 }

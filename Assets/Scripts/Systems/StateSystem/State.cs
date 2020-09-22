@@ -12,20 +12,9 @@ public class State
         StateID = stateID;
         StateName = stateName;
     }
-    // Update is called at the beginning of the state
-    public virtual void Start(Entity master, Entity target)
-    {
-
-    }
     // Update is called once per frame
     public virtual void Update(Entity master, Entity target)
     {
-        
-    }
-
-    // Update is called at the end of the state
-    public virtual void End(Entity master, Entity target)
-    {
-
+        target.Health -= 0.1f;
     }
 }
