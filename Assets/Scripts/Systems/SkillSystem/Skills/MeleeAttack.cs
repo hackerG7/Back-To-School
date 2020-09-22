@@ -38,7 +38,7 @@ public class MeleeAttack : Skill
         .SetDamage(10)
         .Shoot(entity, 1200);//Shoot the bullet
 
-        AudioManager.Instance.PlaySound("shoot");
+        AudioManager.Instance.PlaySound("attack");
 
 
     }
