@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 123caa41e84e041d0bd65bb3ae888dd1, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -1246,6 +1246,18 @@ PrefabInstance:
       propertyPath: cam
       value: 
       objectReference: {fileID: 788145668}
+    - target: {fileID: 3966350616971738814, guid: 3d082620529588443ab3c8e0caae3ce9, type: 3}
+      propertyPath: m_Size.y
+      value: 1.9758303
+      objectReference: {fileID: 0}
+    - target: {fileID: 3966350616971738814, guid: 3d082620529588443ab3c8e0caae3ce9, type: 3}
+      propertyPath: m_Center.y
+      value: 0.721969
+      objectReference: {fileID: 0}
+    - target: {fileID: 5241445781406014054, guid: 3d082620529588443ab3c8e0caae3ce9, type: 3}
+      propertyPath: _pools.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 69137a6f8985701479df42b3fdee66b1, type: 2}
     - target: {fileID: 7579396282816923628, guid: 3d082620529588443ab3c8e0caae3ce9, type: 3}
       propertyPath: _pools.Array.size
       value: 3
@@ -1656,6 +1668,36 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: da5823cb5d599b84e92fb2b18ce63893, type: 3}
+--- !u!1 &1692842747
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1692842748}
+  m_Layer: 0
+  m_Name: BroomSpinningEffect
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1692842748
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1692842747}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1806265914 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3560432530165431411, guid: f6bebd09b06f51e4d91373e793673423, type: 3}
@@ -1905,12 +1947,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1254779014471552822, guid: 61fd6c132a8faca4cadc4e2acfdf91c2, type: 3}
       propertyPath: sounds.Array.data[0].name
-      value: shoot
+      value: attack
       objectReference: {fileID: 0}
     - target: {fileID: 1254779014471552822, guid: 61fd6c132a8faca4cadc4e2acfdf91c2, type: 3}
       propertyPath: sounds.Array.data[0].clip
       value: 
-      objectReference: {fileID: 8300000, guid: 6298f66d2a2c88845b59a4c8c705e9c5, type: 3}
+      objectReference: {fileID: 8300000, guid: d59d0b2793a0faf41838876d0b4480a9, type: 3}
     - target: {fileID: 1254779014471552822, guid: 61fd6c132a8faca4cadc4e2acfdf91c2, type: 3}
       propertyPath: sounds.Array.data[0].randomVolume
       value: 0
@@ -2037,6 +2079,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 320876253}
     m_Modifications:
+    - target: {fileID: 1130137503642428886, guid: 36e68c5f10d917c49ababe67190bcbdf, type: 3}
+      propertyPath: m_Mass
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 8186461284565413454, guid: 36e68c5f10d917c49ababe67190bcbdf, type: 3}
       propertyPath: m_Name
       value: Tuck_Shop

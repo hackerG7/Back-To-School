@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using QFSW.MOP2;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -10,6 +11,7 @@ public class Entity : MonoBehaviour
     public Rigidbody Rigidbody;
     public List<EntitySkill> SkillList = new List<EntitySkill>();
     public List<EntityState> StateList = new List<EntityState>();
+    public MasterObjectPooler ObjectPooler;
     // Start is called before the first frame update
     void Start()
     {
@@ -45,6 +47,7 @@ public class Entity : MonoBehaviour
             entityState.Update();
             if (entityState.GetFinished())
             {
+                entityState.End();//End the state
                 StateList.Remove(entityState);
                 i--;
             }
@@ -54,7 +57,9 @@ public class Entity : MonoBehaviour
     #region AddState
     public void AddState(Entity master, State state, float duration)
     {//AddState with given other master, 由其他人施放的效果
-        StateList.Add(new EntityState(master, this, state, duration));
+        EntityState ES = new EntityState(master, this, state, duration);
+        ES.Start();//Start the state
+        StateList.Add(ES);
     }
     public void AddState(Entity master, string stateID, float duration)
     {//AddState with given other master, 由其他人施放的效果
