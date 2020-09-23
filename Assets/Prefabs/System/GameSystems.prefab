@@ -102,10 +102,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7579396284363331962}
     m_Modifications:
+    - target: {fileID: 1013708423653170640, guid: 7556649e2bbdecf40bf65d16b53329e1, type: 3}
+      propertyPath: m_Size.y
+      value: 1.9758303
+      objectReference: {fileID: 0}
+    - target: {fileID: 1013708423653170640, guid: 7556649e2bbdecf40bf65d16b53329e1, type: 3}
+      propertyPath: m_Center.y
+      value: 0.721969
+      objectReference: {fileID: 0}
     - target: {fileID: 1111816863585261548, guid: 7556649e2bbdecf40bf65d16b53329e1, type: 3}
       propertyPath: ObjectPooler
       value: 
       objectReference: {fileID: 5241445781406014054}
+    - target: {fileID: 1111816863585261548, guid: 7556649e2bbdecf40bf65d16b53329e1, type: 3}
+      propertyPath: SkillID
+      value: BroomTornado
+      objectReference: {fileID: 0}
+    - target: {fileID: 1111816863585261548, guid: 7556649e2bbdecf40bf65d16b53329e1, type: 3}
+      propertyPath: UltimateSkillID
+      value: BroomAreaAttack
+      objectReference: {fileID: 0}
     - target: {fileID: 4114641545816348948, guid: 7556649e2bbdecf40bf65d16b53329e1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 669.9751
@@ -177,6 +193,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: MasterObjectPoolerSystem
       objectReference: {fileID: 0}
+    - target: {fileID: 2560157323891411566, guid: 9a4bc5b4986076245ba278a75ec8a243, type: 3}
+      propertyPath: _pools.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2560157323891411566, guid: 9a4bc5b4986076245ba278a75ec8a243, type: 3}
+      propertyPath: _pools.Array.data[3]
+      value: 
+      objectReference: {fileID: 11400000, guid: c660ea0061ee8124a9fafbf9ace2f1f4, type: 2}
     - target: {fileID: 2560157323891411567, guid: 9a4bc5b4986076245ba278a75ec8a243, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -250,7 +274,7 @@ PrefabInstance:
     - target: {fileID: 2560157323891411566, guid: 9a4bc5b4986076245ba278a75ec8a243, type: 3}
       propertyPath: _pools.Array.data[0]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 11400000, guid: 69137a6f8985701479df42b3fdee66b1, type: 2}
     - target: {fileID: 2560157323891411567, guid: 9a4bc5b4986076245ba278a75ec8a243, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.5332031

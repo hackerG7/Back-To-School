@@ -21,9 +21,15 @@ public class Bullet : MonoBehaviour
     public float Damage = 10;
 
     public Action<Bullet> DestroyCallback;//This is a function that would be called when the bullet destroy.
+    public Action<Bullet, Entity> EntityCollisionCallback;//This is a function that would be called when the bullet collide with entity.
     public Bullet OnDeath(Action<Bullet> callback)
     {//Setting the destroy callback
         DestroyCallback = callback;
+        return this;
+    }
+    public Bullet OnEntityCollision(Action<Bullet, Entity> callback)
+    {//Setting the collision callback
+        EntityCollisionCallback = callback;
         return this;
     }
     public Bullet SetDamage(float damage)
@@ -97,18 +103,26 @@ public class Bullet : MonoBehaviour
         if (target == null) return;
         if (target == Master) return;
 
+        bool success = false;//successfully collide?
         if (!Piercing)
         {
-            target.Health -= Damage;
+            success = true;
             Remove();
         }
         else
         {
             if (!HitList.Contains(target))
             {
-                target.Health -= Damage;
+                success = true;
                 HitList.Add(target);
             }
+        }
+        if (success)
+        {
+            //Apply collision event
+            target.Health -= Damage;
+            if(EntityCollisionCallback!=null)
+                EntityCollisionCallback(this, target);
         }
     }
     private void OnTriggerEnter(Collider other)

@@ -19,7 +19,7 @@ public class Entity : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         //Update all EntitySkills
         UpdateEntitySkill();

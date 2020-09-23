@@ -12,6 +12,7 @@ public class StateDatabase : MonoBehaviour
     private void LoadAllStates()
     {//This is the place holding all States data
         StateList.Add(new AreaAttackState("BroomAreaAttack", "掃把旋轉術"));
+        StateList.Add(new AirborneState("Airborne", "懸空"));
     }
     private void Awake()
     {

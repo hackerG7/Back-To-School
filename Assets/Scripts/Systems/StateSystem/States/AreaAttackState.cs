@@ -30,13 +30,13 @@ public class AreaAttackState : State
     }
     public override void Update(Entity master, Entity target)
     {
-        if(AttackTimer < AttackIntverval)
+        if (AttackTimer < AttackIntverval)
         {
             AttackTimer += Time.deltaTime;
             return;//stop
         }
         //Attack
-        PhysicsExtension.Explosion(target.transform.position, 5f, 30);
+        PhysicsExtension.ExplosionExcept(target.transform.position, 5f, 30, target.gameObject);//blow everyone up except self
         Collider[] objects = UnityEngine.Physics.OverlapSphere(target.transform.position, Radius);
         foreach (Collider h in objects)
         {

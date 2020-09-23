@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5ad40add42ecce646952aaa9475056c8, type: 3}
-  m_Name: MeleeAttack
+  m_Name: Tornado
   m_EditorClassIdentifier: 
-  _name: MeleeAttack
-  _template: {fileID: 5636250455556771140, guid: 4c4413ff80121a042838dcef94cf718f, type: 3}
+  _name: Tornado
+  _template: {fileID: 5636250455556771140, guid: 4186beb366de34f4d8092809888054af, type: 3}
   _defaultSize: 0
-  _maxSize: 10
+  _maxSize: 5
   _incrementalInstanceNames: 0
   _autoInitialize: 1
   _repopulateOnSceneChange: 0
