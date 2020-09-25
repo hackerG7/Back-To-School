@@ -102,7 +102,14 @@ public class PlayerMovement : MonoBehaviour
         
         //Adding Force to GameObject
         rb.AddForce(movement.x, 0, movement.z, ForceMode.VelocityChange);
-        
+        if(movement.x != 0 || movement.z != 0)
+        {//moving
+            EntitySystem.Instance.MainPlayer.Animator.SetBool("Walking", true);
+        }
+        else
+        {
+            EntitySystem.Instance.MainPlayer.Animator.SetBool("Walking", false);
+        }
         
         
         

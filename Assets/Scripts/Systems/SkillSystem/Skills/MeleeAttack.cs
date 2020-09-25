@@ -37,7 +37,7 @@ public class MeleeAttack : Skill
         .OnDeath((b) => PhysicsExtension.Explosion(b.transform.position, 10f, 200))//when death, explosion
         .SetDamage(10)
         .Shoot(entity, 1200);//Shoot the bullet
-
+        entity.RunWeaponAttackAnimation();
         AudioManager.Instance.PlaySound("attack");
 
 

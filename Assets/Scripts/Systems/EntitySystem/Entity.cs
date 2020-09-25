@@ -12,6 +12,7 @@ public class Entity : MonoBehaviour
     public List<EntitySkill> SkillList = new List<EntitySkill>();
     public List<EntityState> StateList = new List<EntityState>();
     public MasterObjectPooler ObjectPooler;
+    public Animator Animator;
     // Start is called before the first frame update
     void Start()
     {
@@ -76,6 +77,14 @@ public class Entity : MonoBehaviour
         State state = StateDatabase.Instance.FindStateByID(stateID);
         if (state == null) return;
         AddState(state, duration);
+    }
+    #endregion
+
+    #region Animator
+    public void RunWeaponAttackAnimation()
+    {
+        Animator.SetTrigger("WeaponAttack");
+        //Animator.SetBool("WeaponAttacking", true);
     }
     #endregion
 }

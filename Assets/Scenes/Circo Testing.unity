@@ -1226,18 +1226,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 113803410, guid: 3d082620529588443ab3c8e0caae3ce9, type: 3}
-      propertyPath: shootingforce
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 818281253, guid: 3d082620529588443ab3c8e0caae3ce9, type: 3}
-      propertyPath: campos
-      value: 
-      objectReference: {fileID: 788145669}
-    - target: {fileID: 818281253, guid: 3d082620529588443ab3c8e0caae3ce9, type: 3}
-      propertyPath: cam
-      value: 
-      objectReference: {fileID: 788145668}
     - target: {fileID: 800100483620729924, guid: 3d082620529588443ab3c8e0caae3ce9, type: 3}
       propertyPath: campos
       value: 
@@ -1246,30 +1234,6 @@ PrefabInstance:
       propertyPath: cam
       value: 
       objectReference: {fileID: 788145668}
-    - target: {fileID: 3966350616971738814, guid: 3d082620529588443ab3c8e0caae3ce9, type: 3}
-      propertyPath: m_Size.y
-      value: 1.9758303
-      objectReference: {fileID: 0}
-    - target: {fileID: 3966350616971738814, guid: 3d082620529588443ab3c8e0caae3ce9, type: 3}
-      propertyPath: m_Center.y
-      value: 0.721969
-      objectReference: {fileID: 0}
-    - target: {fileID: 5241445781406014054, guid: 3d082620529588443ab3c8e0caae3ce9, type: 3}
-      propertyPath: _pools.Array.data[0]
-      value: 
-      objectReference: {fileID: 11400000, guid: 69137a6f8985701479df42b3fdee66b1, type: 2}
-    - target: {fileID: 7579396282816923628, guid: 3d082620529588443ab3c8e0caae3ce9, type: 3}
-      propertyPath: _pools.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 7579396282816923628, guid: 3d082620529588443ab3c8e0caae3ce9, type: 3}
-      propertyPath: _pools.Array.data[1]
-      value: 
-      objectReference: {fileID: 11400000, guid: 1326f76582658134695cb4bedd0c4e37, type: 2}
-    - target: {fileID: 7579396282816923628, guid: 3d082620529588443ab3c8e0caae3ce9, type: 3}
-      propertyPath: _pools.Array.data[2]
-      value: 
-      objectReference: {fileID: 11400000, guid: bf330f61eea0b0644b9e07c1b3c88ae5, type: 2}
     - target: {fileID: 7579396284363331957, guid: 3d082620529588443ab3c8e0caae3ce9, type: 3}
       propertyPath: m_Name
       value: GameSystems
