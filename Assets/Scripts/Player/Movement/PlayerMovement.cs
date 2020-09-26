@@ -24,9 +24,7 @@ public class PlayerMovement : MonoBehaviour
     public Vector3 offset;
 
     //player rotation
-    public Camera cam;
-    float raylength;
-    public Vector3 pointtolook;
+    public float sensitivity = 100f;
 
 
     void Start()
@@ -47,29 +45,7 @@ public class PlayerMovement : MonoBehaviour
 
         
 
-        //Locking Velocity to maxspeed
-        speed.x = rb.velocity.x;
-        speed.z = rb.velocity.z;
-
-        speed.x = Mathf.Clamp(speed.x, -maxspeed, maxspeed);
-        speed.z = Mathf.Clamp(speed.z, -maxspeed, maxspeed);
-
-        if (rb.velocity.x > maxspeed || rb.velocity.z > maxspeed || rb.velocity.z < -maxspeed || rb.velocity.x < -maxspeed)
-        {
-            rb.velocity = new Vector3(speed.x, rb.velocity.y, speed.z);
-        }
-
-        //Zeroing speed
-        if (movement.x == 0)
-        {
-            rb.velocity = new Vector3(0, rb.velocity.y, speed.z);
-            speed.x = 0;
-        }
-
-        if (movement.z == 0)
-        {
-            rb.velocity = new Vector3(speed.x, rb.velocity.y, 0);
-        }
+        
         
 
 
@@ -78,30 +54,22 @@ public class PlayerMovement : MonoBehaviour
 
 
         //player rotation
-        Ray camray = cam.ScreenPointToRay(Input.mousePosition);
-        Plane groundplane = new Plane(Vector3.up, rb.position);
-
-        if (groundplane.Raycast(camray, out raylength))
-        {
-            pointtolook = camray.GetPoint(raylength);
-            transform.LookAt(pointtolook);
-        }
-               
-        Debug.DrawLine(camray.origin, pointtolook, Color.blue);
+        float mousex = Input.GetAxis("Mouse X") * sensitivity * Time.deltaTime;
+        playertransform.Rotate(Vector3.up * mousex);
 
 
 
 
-        
 
-        
+
+
     }
     void FixedUpdate()
     {
         
         
         //Adding Force to GameObject
-        rb.AddForce(movement.x, 0, movement.z, ForceMode.VelocityChange);
+        rb.AddRelativeForce(movement.x, 0, movement.z, ForceMode.VelocityChange);
         if(movement.x != 0 || movement.z != 0)
         {//moving
             EntitySystem.Instance.MainPlayer.Animator.SetBool("Walking", true);

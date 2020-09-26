@@ -16,14 +16,7 @@ public class PlayerShooting : MonoBehaviour
         
     }
 
-    public Vector3 GetPlayerShootingDirection()
-    {//Get the shooting direction of the player
-        Vector3 endpoint = EntitySystem.Instance.MainPlayer.PlayerMovement.pointtolook;
-        Vector3 startpoint = EntitySystem.Instance.MainPlayer.PlayerMovement.playertransform.position;
-        Vector3 shootDirection = endpoint - startpoint;
-        shootDirection = shootDirection.normalized;
-        return shootDirection;
-    }
+    
     // Update is called once per frame
     void Update()
     {
