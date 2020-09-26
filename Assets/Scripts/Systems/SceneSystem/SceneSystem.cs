@@ -9,7 +9,6 @@ public class SceneSystem : MonoBehaviour
     void Awake()
     {
         instance = this;
-        DontDestroyOnLoad(this.gameObject);
     }
     public void ChangeScene(string sceneName)
     {
