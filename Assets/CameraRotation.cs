@@ -5,19 +5,32 @@ using UnityEngine;
 public class CameraRotation : MonoBehaviour
 {
 
-    public Transform player;
-    public float XAngle;
+    public Transform target, player;
+    public float rotationspeed = 1f;
+    public float mouseX, mouseY;
+    
     // Start is called before the first frame update
     void Start()
     {
         
     }
 
-    // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
-        float yrotation = player.rotation.eulerAngles.y;
-        transform.rotation = Quaternion.Euler(XAngle, yrotation, transform.rotation.z);
+        CamControl();
+    }
+
+    // Update is called once per frame
+    void CamControl()
+    {
+        mouseX += Input.GetAxis("Mouse X") * rotationspeed;
+        mouseY -= Input.GetAxis("Mouse Y") * rotationspeed;
+        mouseY = Mathf.Clamp(mouseY, -35, 60);
+
+        transform.LookAt(target);
+
+        target.rotation = Quaternion.Euler(mouseY, mouseX, 0);
+        player.rotation = Quaternion.Euler(0, mouseX, 0);
 
     }
 }

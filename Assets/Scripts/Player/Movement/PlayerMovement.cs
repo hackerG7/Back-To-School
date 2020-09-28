@@ -19,12 +19,9 @@ public class PlayerMovement : MonoBehaviour
     //maxspeed
     public float maxspeed = 10f;
 
-    //Camera control   
-    public Transform campos;    
-    public Vector3 offset;
+    
 
-    //player rotation
-    public float sensitivity = 100f;
+    
 
 
     void Start()
@@ -43,19 +40,26 @@ public class PlayerMovement : MonoBehaviour
         //Debug.Log(raylength);
 
 
-        
+        //Locking Velocity to maxspeed
+        speed.x = rb.velocity.x;
+        speed.z = rb.velocity.z;
+
+        speed.x = Mathf.Clamp(speed.x, -maxspeed, maxspeed);
+        speed.z = Mathf.Clamp(speed.z, -maxspeed, maxspeed);
+
+        if (rb.velocity.x > maxspeed || rb.velocity.z > maxspeed || rb.velocity.z < -maxspeed || rb.velocity.x < -maxspeed)
+        {
+            rb.velocity = new Vector3(speed.x, rb.velocity.y, speed.z);
+        }
+
+
+
+
 
         
+
+
         
-
-
-        //camera control
-        campos.position = rb.position + offset;
-
-
-        //player rotation
-        float mousex = Input.GetAxis("Mouse X") * sensitivity * Time.deltaTime;
-        playertransform.Rotate(Vector3.up * mousex);
 
 
 
