@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class Skill
+public class Skill : MonoBehaviour
 {
     public Skill(string skillID, string skillName, float Cooldown)
     {//Constructor

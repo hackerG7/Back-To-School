@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BroomTornado : Skill
+public class BroomTornadoSkill : Skill
 {
-    public BroomTornado(string skillID, string skillName, float cooldown)
+    public BroomTornadoSkill(string skillID, string skillName, float cooldown)
     : base(skillID, skillName, cooldown)
     {
         // DerivedClass parameter types have to match base class types

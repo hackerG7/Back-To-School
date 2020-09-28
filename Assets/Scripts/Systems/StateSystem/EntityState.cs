@@ -21,12 +21,12 @@ public class EntityState
     }
     public void Start()
     {
-        State.Start(Master, Target);
+        State.RunStart(Master, Target);
     }
     public void Update()
     {//the entity would call this function every frame
 
-        State.Update(Master, Target);
+        State.RunUpdate(Master, Target);
 
         if (CurrentTimer > 0)
         {//counting the time
@@ -36,7 +36,7 @@ public class EntityState
     }
     public void End()
     {
-        State.End(Master, Target);
+        State.RunEnd(Master, Target);
     }
     public bool GetFinished()
     {//Get if the state is finished in duration.

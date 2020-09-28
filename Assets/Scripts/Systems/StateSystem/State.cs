@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 [System.Serializable]
-public class State
+public class State : MonoBehaviour
 {
     public string StateID;//Identifier
     public string StateName;//The name of the state
@@ -13,18 +13,18 @@ public class State
         StateName = stateName;
     }
     // Update is called at the beginning of the state
-    public virtual void Start(Entity master, Entity target)
+    public virtual void RunStart(Entity master, Entity target)
     {
 
     }
     // Update is called once per frame
-    public virtual void Update(Entity master, Entity target)
+    public virtual void RunUpdate(Entity master, Entity target)
     {
         
     }
 
     // Update is called at the end of the state
-    public virtual void End(Entity master, Entity target)
+    public virtual void RunEnd(Entity master, Entity target)
     {
 
     }
