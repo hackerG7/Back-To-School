@@ -8,11 +8,14 @@ public class CameraRotation : MonoBehaviour
     public Transform target, player;
     public float rotationspeed = 1f;
     public float mouseX, mouseY;
+
+    private RaycastHit hit;
+    private Vector3 camera_offset;
     
     // Start is called before the first frame update
     void Start()
     {
-        
+        camera_offset = transform.localPosition;
     }
 
     void LateUpdate()
@@ -32,5 +35,18 @@ public class CameraRotation : MonoBehaviour
         target.rotation = Quaternion.Euler(mouseY, mouseX, 0);
         player.rotation = Quaternion.Euler(0, mouseX, 0);
 
+    }
+
+    void Update()
+    {
+        if (Physics.Linecast(target.position,target.position + camera_offset,out hit))
+        {
+            transform.localPosition = new Vector3(0, 0, -Vector3.Distance(target.position, hit.point));
+        }
+        else
+        {
+            transform.localPosition = camera_offset;
+        }
+        Debug.Log(hit.point);
     }
 }
