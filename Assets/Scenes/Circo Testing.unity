@@ -1028,7 +1028,7 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.3
+  near clip plane: 2
   far clip plane: 1000
   field of view: 60
   orthographic: 0
@@ -1300,6 +1300,14 @@ PrefabInstance:
       propertyPath: Speed
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 3966350616971738814, guid: 3d082620529588443ab3c8e0caae3ce9, type: 3}
+      propertyPath: m_Size.y
+      value: 1.9573609
+      objectReference: {fileID: 0}
+    - target: {fileID: 3966350616971738814, guid: 3d082620529588443ab3c8e0caae3ce9, type: 3}
+      propertyPath: m_Center.y
+      value: 0.92896336
+      objectReference: {fileID: 0}
     - target: {fileID: 7579396284363331957, guid: 3d082620529588443ab3c8e0caae3ce9, type: 3}
       propertyPath: m_Name
       value: GameSystems
@@ -1350,11 +1358,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7912749294909915896, guid: 3d082620529588443ab3c8e0caae3ce9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.26
+      value: 4.678
       objectReference: {fileID: 0}
     - target: {fileID: 7912749294909915896, guid: 3d082620529588443ab3c8e0caae3ce9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.99
+      value: -2.75
       objectReference: {fileID: 0}
     - target: {fileID: 7912749294909915896, guid: 3d082620529588443ab3c8e0caae3ce9, type: 3}
       propertyPath: m_LocalPosition.z
