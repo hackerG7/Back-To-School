@@ -8,6 +8,7 @@ public class CameraRotation : MonoBehaviour
     public Transform target, player;
     public float rotationspeed = 1f;
     public float mouseX, mouseY;
+    public Transform record;
 
     private RaycastHit hit;
     private Vector3 camera_offset;
@@ -39,14 +40,15 @@ public class CameraRotation : MonoBehaviour
 
     void Update()
     {
-        if (Physics.Linecast(target.position,target.position + camera_offset,out hit))
+        if (Physics.Linecast(target.position,record.position,out hit))
         {
-            transform.localPosition = new Vector3(0, 0, -Vector3.Distance(target.position, hit.point));
+            transform.position = hit.point;
         }
         else
         {
-            transform.localPosition = camera_offset;
+            transform.localPosition = record.localPosition;
         }
         Debug.Log(hit.point);
+        Debug.DrawLine(target.position, record.position, Color.blue);
     }
 }
