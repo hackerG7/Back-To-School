@@ -7,13 +7,6 @@ public class MeleeAttackSkill : Skill
     public float Distance = 50;
     public float Angle = 90;//The angle of the attack area
     public float Damage = 10;//the power of explosion
-    public MeleeAttackSkill(string skillID, string skillName, float cooldown)
-    : base(skillID, skillName, cooldown)
-    {
-        // DerivedClass parameter types have to match base class types
-        // Do additional work here otherwise you can leave it empty
-    }
-
     public override void Run(Entity entity)
     {
         //Bullet builder
