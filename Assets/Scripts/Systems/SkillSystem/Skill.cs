@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class Skill : MonoBehaviour
+[CreateAssetMenu(menuName = "Create Skill")]
+public partial class Skill : ScriptableObject
 {
     public string skillID = "";
     public string skillName = "";

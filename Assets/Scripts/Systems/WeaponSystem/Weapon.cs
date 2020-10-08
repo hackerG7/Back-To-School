@@ -1,26 +1,26 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Animations;
 using UnityEngine;
 
 [System.Serializable]
-public class Weapon : MonoBehaviour
+[CreateAssetMenu(menuName = "Create Weapon")]
+public class Weapon : ScriptableObject
 {
-    public Entity Master;
     public string WeaponID;
-    public string AttackSkillID;//The basic attack skill
-    public EntitySkill AttackSkill;
+    public string WeaponName;
+    public string Description;
+    public float Damage;
+    public float AttackSpeed;
+    public float Range;
+    public AnimatorController AnimatorController;//The animator controller of the weapon
 
-    private void Start()
-    {
-        AttackSkill = EntitySkill.FromSkill(SkillDatabase.Instance.FindSkillByID(AttackSkillID));
-    }
-    public void Attack()
-    {
-        AttackSkill.Run(Master);
-    }
-    private void Update()
-    {
-        AttackSkill.Update();
+
+
+    public virtual void Run(Entity Master)
+    {//When the player run the skill
+        Debug.Log($"attacking with weapon for {Master}");
     }
 
 }

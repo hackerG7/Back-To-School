@@ -10,11 +10,11 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         if (Input.GetButtonDown(BasicAttackButton))
-        {//Run normal skill
+        {//Run normal weapon attack
 
-            Weapon weapon = EntitySystem.Instance.MainPlayer.Weapon;
-            if (weapon != null)
-                weapon.Attack();
+            EntityWeapon entityWeapon = EntitySystem.Instance.MainPlayer.Weapon;
+            if (entityWeapon != null)
+                entityWeapon.Run(EntitySystem.Instance.MainPlayer);
 
         }
         if (Input.GetButtonDown(SkillButton))

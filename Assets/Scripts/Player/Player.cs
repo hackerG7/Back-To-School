@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using ScriptableObjectDropdown;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -12,19 +13,19 @@ public class Player : Entity
     public PlayerMovement PlayerMovement;
     public PlayerShooting PlayerShooting;
 
-    //Weapon
-    public Weapon Weapon = null;
-
     //Skills
-    public string SkillID = null;
-    public string UltimateSkillID = null;
+    [ScriptableObjectDropdown(typeof(Skill))] public ScriptableObjectReference SkillReference = null;
+    [ScriptableObjectDropdown(typeof(Skill))] public ScriptableObjectReference UltimateSkillReference = null;
     private void Start()
     {
+        base.Start();
         SyncStatWithCharacter();//sync the stat value of the player e.g. health, speed, damage
-        //Weapon = FindWeaponFromDatabase();
         AddPlayerSkills();//turning the player skillID to the skill and push into the skill list.
     }
 
+    #region Weapon
+
+    #endregion
     #region Skill
     public EntitySkill GetSkill()
     {//getting the normal skill
@@ -81,12 +82,10 @@ public class Player : Entity
     private void AddPlayerSkills()
     {//Add the player skills to the entity skill list
 
-        Skill skill = SkillDatabase.Instance.FindSkillByID(SkillID);//Find the skill from the database
-        EntitySkill entitySkill = EntitySkill.FromSkill(skill);//turn the skill into entity skill with cooldown timer
+        EntitySkill entitySkill = EntitySkill.FromSkill((Skill)SkillReference.value);//turn the skill into entity skill with cooldown timer
         SkillList.Add(entitySkill);//Adding the normal skill
 
-        Skill ultimateSkill = SkillDatabase.Instance.FindSkillByID(UltimateSkillID);//Find the skill from the database
-        EntitySkill entityUltimateSkill = EntitySkill.FromSkill(ultimateSkill);//turn the skill into entity skill with cooldown timer
+        EntitySkill entityUltimateSkill = EntitySkill.FromSkill((Skill)UltimateSkillReference.value);//turn the skill into entity skill with cooldown timer
         SkillList.Add(entityUltimateSkill);//Adding the normal skill
     }
     #endregion

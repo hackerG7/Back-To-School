@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 [System.Serializable]
+[CreateAssetMenu(menuName = "Skill/FireballSkill")]
 public class FireballSkill : Skill
 {
     public float ShootForce { get; set; } = 500;

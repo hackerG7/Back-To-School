@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 [System.Serializable]
+[CreateAssetMenu(menuName = "Skill/MeleeAttackSkill")]
 public class MeleeAttackSkill : Skill
 {
     public float Distance = 50;

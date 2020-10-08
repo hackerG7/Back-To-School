@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[CreateAssetMenu(menuName = "Skill/BroomTornadoSkill")]
 public class BroomTornadoSkill : Skill
 {
 

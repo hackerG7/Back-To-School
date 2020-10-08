@@ -1,24 +1,36 @@
 ﻿using QFSW.MOP2;
+using ScriptableObjectDropdown;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Entity : MonoBehaviour
 {
+    #region Variables
     public float Health = 100;
     public float Speed = 100;
     public float Damage = 100;
     public Rigidbody Rigidbody;
-    public List<EntitySkill> SkillList = new List<EntitySkill>();
-    public List<EntityState> StateList = new List<EntityState>();
     public MasterObjectPooler ObjectPooler;
     public Animator Animator;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    #endregion
 
+    #region Weapon
+    [ScriptableObjectDropdown(typeof(Weapon))] public ScriptableObjectReference WeaponReference = null;//This is a field for developer to fill in
+    [HideInInspector] public EntityWeapon Weapon;//This is the actual Weapon
+    #endregion
+
+    #region Skill and State
+    [HideInInspector] public List<EntitySkill> SkillList = new List<EntitySkill>();
+    [HideInInspector] public List<EntityState> StateList = new List<EntityState>();
+    #endregion
+
+    public void Start()
+    {
+        SetWeapon(WeaponReference);//Set the weapon for the entity from the reference field
+    }
+    
+    #region Update
     // Update is called once per frame
     void FixedUpdate()
     {
@@ -26,6 +38,9 @@ public class Entity : MonoBehaviour
         UpdateEntitySkill();
         //Update all EntityStates
         UpdateEntityState();
+        //Update Weapon
+        Weapon.Update();
+
         //Death
         if(Health <= 0)
         {
@@ -54,7 +69,30 @@ public class Entity : MonoBehaviour
             }
         }
     }
+    #endregion
 
+    #region SetWeapon
+    public void SetWeapon(EntityWeapon weapon)
+    {
+        Weapon = weapon;
+    }
+    public void SetWeapon(ScriptableObjectReference weaponReference)
+    {
+        Weapon weapon = (Weapon)weaponReference.value;//take the value from the input field
+        this.Weapon = EntityWeapon.FromWeapon(weapon);//turn it into the EntityWeapon
+        Debug.Log($"weapon: {Weapon.Weapon.WeaponName}");
+    }
+    public void SetWeapon(string weaponID)
+    {
+        Weapon weapon = WeaponDatabase.Instance.FindWeaponByID(weaponID);
+        if (weapon != null)
+        {
+            EntityWeapon EW = new EntityWeapon(weapon);
+            Weapon = EW;
+        }
+    }
+    #endregion
+    
     #region AddState
     public void AddState(Entity master, State state, float duration)
     {//AddState with given other master, 由其他人施放的效果

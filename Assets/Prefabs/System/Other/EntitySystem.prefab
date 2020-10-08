@@ -44,7 +44,6 @@ GameObject:
   - component: {fileID: 3603059511981479722}
   - component: {fileID: 1111816863585261548}
   - component: {fileID: 3917842447908685178}
-  - component: {fileID: 980276327358566536}
   - component: {fileID: 5696118460091927236}
   m_Layer: 0
   m_Name: ExplosiveUncle
@@ -113,10 +112,6 @@ MonoBehaviour:
   playertransform: {fileID: 6112967032188133782}
   rb: {fileID: 5912446792686618025}
   maxspeed: 5
-  campos: {fileID: 0}
-  offset: {x: 0, y: 11.25, z: -3.03}
-  cam: {fileID: 0}
-  pointtolook: {x: 0, y: 0, z: 0}
 --- !u!114 &1111816863585261548
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -133,6 +128,12 @@ MonoBehaviour:
   Speed: 100
   Damage: 100
   Rigidbody: {fileID: 5912446792686618025}
+  WeaponReference:
+    value: {fileID: 0}
+  Weapon:
+    Weapon: {fileID: 0}
+    WeaponReady: 0
+    CurrentTime: 0
   SkillList: []
   StateList: []
   ObjectPooler: {fileID: 0}
@@ -141,9 +142,10 @@ MonoBehaviour:
   PlayerController: {fileID: 3917842447908685178}
   PlayerMovement: {fileID: 3603059511981479722}
   PlayerShooting: {fileID: 3495386837897818051}
-  Weapon: {fileID: 980276327358566536}
-  SkillID: BroomAreaAttack
-  UltimateSkillID: Waterball
+  SkillReference:
+    value: {fileID: 0}
+  UltimateSkillReference:
+    value: {fileID: 0}
 --- !u!114 &3917842447908685178
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -159,28 +161,6 @@ MonoBehaviour:
   BasicAttackButton: Fire1
   SkillButton: Fire2
   UltimateSkillButton: Jump
---- !u!114 &980276327358566536
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 980276327358566539}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2bb82bc0ae8f98942bc51ee406a2fcdb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Master: {fileID: 1111816863585261548}
-  WeaponID: Broom
-  AttackSkillID: BroomAttack
-  AttackSkill:
-    Skill:
-      skillID: 
-      skillName: 
-      Cooldown: 0
-    SkillReady: 0
-    CurrentTime: 0
 --- !u!95 &5696118460091927236
 Animator:
   serializedVersion: 3
