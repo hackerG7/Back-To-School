@@ -5,15 +5,11 @@ using System.Linq;
 using EasyButtons;
 using UnityEditor;
 
-public class WeaponDatabase : MonoBehaviour
+[ExecuteInEditMode]
+public class WeaponDatabase : SingletonMonoBehaviour<WeaponDatabase>
 {
-    public static WeaponDatabase Instance;//Singleton
     public List<Weapon> WeaponList = new List<Weapon>();
 
-    private void Awake()
-    {
-        Instance = this;//Singleton
-    }
     public void Initiate()
     {
         LoadAllWeapons();

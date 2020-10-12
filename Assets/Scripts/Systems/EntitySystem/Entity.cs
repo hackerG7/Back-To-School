@@ -16,7 +16,7 @@ public class Entity : MonoBehaviour
     #endregion
 
     #region Weapon
-    [ScriptableObjectDropdown(typeof(Weapon))] public ScriptableObjectReference WeaponReference = null;//This is a field for developer to fill in
+    [Dropdown("WeaponDatabase.Instance.WeaponList")] public Weapon WeaponReference = null;//This is a field for developer to fill in
     [HideInInspector] public EntityWeapon Weapon;//This is the actual Weapon
     #endregion
 
@@ -75,6 +75,10 @@ public class Entity : MonoBehaviour
     public void SetWeapon(EntityWeapon weapon)
     {
         Weapon = weapon;
+    }
+    public void SetWeapon(Weapon weapon)
+    {
+        Weapon = EntityWeapon.FromWeapon(weapon);
     }
     public void SetWeapon(ScriptableObjectReference weaponReference)
     {

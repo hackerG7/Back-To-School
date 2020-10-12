@@ -4,10 +4,10 @@ using UnityEngine;
 using System.Linq;
 using EasyButtons;
 
-public class StateDatabase : MonoBehaviour
+[ExecuteInEditMode]
+public class StateDatabase : SingletonMonoBehaviour<StateDatabase>
 {
 
-    public static StateDatabase Instance;//Singleton
     public List<State> StateList = new List<State>();
 
     [Button]

@@ -14,6 +14,10 @@ public class Player : Entity
     public PlayerShooting PlayerShooting;
 
     //Skills
+    public List<Skill> objectList = new List<Skill>();
+    [Dropdown("SkillDatabase.Instance.SkillList")] public Skill Skill = null;
+    [Dropdown("SkillDatabase.Instance.SkillList")] public Skill Ultimate = null;
+    public Skill UltimateSkill = null;
     [ScriptableObjectDropdown(typeof(Skill))] public ScriptableObjectReference SkillReference = null;
     [ScriptableObjectDropdown(typeof(Skill))] public ScriptableObjectReference UltimateSkillReference = null;
     private void Start()

@@ -5,11 +5,12 @@ using System.Linq;
 using UnityEditor;
 using UnityEngine;
 
-public class SkillDatabase : MonoBehaviour
+[ExecuteInEditMode]
+public class SkillDatabase : SingletonMonoBehaviour<SkillDatabase>
 {
-    public static SkillDatabase Instance;//Singleton
+
     public List<Skill> SkillList = new List<Skill>();
-    
+
 
     [Button]
     public void LoadAllSkills()
@@ -23,7 +24,7 @@ public class SkillDatabase : MonoBehaviour
     }
     private void Awake()
     {
-        Instance = this;//Singleton
+        Debug.LogError("AWAKE");
         LoadAllSkills();//Loading all skills
     }
 
